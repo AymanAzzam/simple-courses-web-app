@@ -13,9 +13,9 @@ CREATE TABLE `courses` (
     `name` VARCHAR(255) DEFAULT NULL,
     `description` VARCHAR(255) DEFAULT NULL,
     `instructor_id` INT NOT NULL,
-    `start_date` DATETIME DEFAULT NULL,
+    `start_date` DATE DEFAULT NULL,
     `duration` INT DEFAULT NULL,
-    `price` FLOAT DEFAULT NULL,
+    `price` INT DEFAULT NULL,
     PRIMARY KEY(`id`),
     FOREIGN KEY(`instructor_id`) REFERENCES `instructors`(`id`)
 );

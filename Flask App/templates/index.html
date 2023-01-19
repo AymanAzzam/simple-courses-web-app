@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Courses Web App</title>
+</head>
+<body>
+   <h1>Courses</h1>
+    <table style="width:100%">
+        <thead>
+            <tr>
+                <td>
+                    <h3>Course Name</h3>
+                </td >
+                <td>
+                    <h3>Start Date</h3>
+                </td>
+                <td>
+                    <h3>Duration</h3>
+                </td>
+                <td>
+                    <h3>Price</h3>
+                </td>
+                <td>
+                    <a href="/new">
+                        <h3>Add Course</h3>
+                    </a>
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+
+        {% for course in courses %}
+            <tr>
+                <td>
+                    <h3>{{ course['name'] }}</h3>
+                </td>
+                <td>
+                    <h3>{{ course['start_date'] }}</h3>
+                </td>
+                <td>
+                    <h3>{{ course['duration'] }} Months</h3>
+                </td>
+                <td>
+                    <h3>{{ course['price'] }}$</h3>
+                </td>
+                <td>
+                    <a href="/{{course['id']}}/edit">
+                        <h3>Edit</h3>
+                    </a>
+                </td>
+            </tr>
+            
+        {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
