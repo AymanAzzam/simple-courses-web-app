@@ -12,7 +12,7 @@ CREATE TABLE `courses` (
     `id` INT NOT NULL AUTO_INCREMENT,
     `name` VARCHAR(255) DEFAULT NULL,
     `description` VARCHAR(255) DEFAULT NULL,
-    `instructor_id` INT NOT NULL,
+    `instructor_id` INT DEFAULT NULL,
     `start_date` DATE DEFAULT NULL,
     `duration` INT DEFAULT NULL,
     `price` INT DEFAULT NULL,
