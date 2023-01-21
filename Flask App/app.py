@@ -1,5 +1,6 @@
-from flask import Flask, render_template, redirect, request, jsonify
+from flask import Flask, render_template, redirect, request
 import database as db
+import os
 
 app = Flask(__name__)
 conn = db.connect_database()
@@ -36,3 +37,8 @@ def update(course_id):
 def delete(course_id):
     db.delete_course(conn, course_id)
     return redirect('/')
+
+if __name__ == "__main__":
+    port = int(os.environ.get('PORT', 5000))
+    # This part is added to be able to run the app inside a container
+    app.run(debug=True, host='0.0.0.0', port=port)
