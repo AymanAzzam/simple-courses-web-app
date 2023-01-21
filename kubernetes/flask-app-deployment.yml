@@ -24,8 +24,8 @@ spec:
             - name: DB_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: flask-app-secrets
-                  key: mysql_root_password
+                  name: mysql-secret
+                  key: password
             - name: DB_HOST
               value: $MYSQL_SERVICE_HOST
             - name: DB_USERNAME
