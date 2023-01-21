@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  app:
+    container_name: flask_app
+    image: aymanazzam07/flask-app:latest
+    build:
+      context: ../flask-app/
+      dockerfile: ../docker/Dockerfile
+    ports:
+      - 5001:5000
+    environment:
+      - DB_NAME=${DB_NAME}
+      - DB_USERNAME=${DB_USERNAME}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_HOST=database
+    depends_on:
+          - database
+
+  database:
+    image: mysql:5.7
+    ports:
+        - "3307:3306"
+    command: --init-file ../database/create.sql
+    environment:
+        MYSQL_ROOT_USER: root
+        MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+        MYSQL_DATABASE: ${DB_NAME}
+        MYSQL_USER: ${DB_USERNAME}
+        MYSQL_PASSWORD: ${DB_PASSWORD}

@@ -1,14 +1,14 @@
---CREATE DATABASE courses_app;
+CREATE DATABASE IF NOT EXISTS courses_app;
 
---USE courses_app;
+USE courses_app;
 
-CREATE TABLE `instructors` (
+CREATE TABLE IF NOT EXISTS `instructors` (
     `id` INT NOT NULL AUTO_INCREMENT,
     `name` VARCHAR(255) DEFAULT NULL,
     PRIMARY KEY(`id`)
 );
 
-CREATE TABLE `courses` (
+CREATE TABLE IF NOT EXISTS `courses` (
     `id` INT NOT NULL AUTO_INCREMENT,
     `name` VARCHAR(255) DEFAULT NULL,
     `description` VARCHAR(255) DEFAULT NULL,
