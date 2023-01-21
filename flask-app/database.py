@@ -19,10 +19,11 @@ def connect_database():
     return connection
 
 
-def execute_query(connection, query: str):
+def execute_query(query: str):
     usefulInfo = {'query': query}
     print(usefulInfo)
 
+    connection = connect_database()
     with connection.cursor(DictCursor) as cur:
         try:
             cur.execute(query)
@@ -33,13 +34,15 @@ def execute_query(connection, query: str):
 
     usefulInfo = {'result': rows}
     print(usefulInfo)
+    connection.close()
     return rows
 
 
-def commit_query(connection, query: str):
+def commit_query(query: str):
     usefulInfo = {'query': query}
     print(usefulInfo)
 
+    connection = connect_database()
     with connection.cursor(DictCursor) as cur:
         try:
             cur.execute(query)
@@ -50,31 +53,32 @@ def commit_query(connection, query: str):
 
     usefulInfo = {'updated records': cur.rowcount, 'record id': cur.lastrowid}
     print(usefulInfo)
+    connection.close()
     return cur.lastrowid, cur.rowcount
 
 
-def select_courses(connection):
+def select_courses():
     query = f"select * from courses"
-    result = execute_query(connection, query)
+    result = execute_query(query)
     return result
 
 
-def select_course(connection, course_id):
+def select_course(course_id):
     query = f"select * from courses where id = {course_id}"
-    result = execute_query(connection, query)
+    result = execute_query(query)
     return result[0]
 
 
-def update_course(connection, course):
+def update_course(course):
     query = f'UPDATE courses SET name = "{course["name"]}", start_date = "{course["date"]}", duration = {course["duration"]}, price = {course["price"]} WHERE id = {course["id"]}'
-    commit_query(connection, query)
+    commit_query(query)
 
 
-def insert_course(connection, course):
+def insert_course(course):
     query = f'INSERT INTO courses (name, start_date, duration, price) VALUES ("{course["name"]}", "{course["date"]}", {course["duration"]}, {course["price"]})'
-    commit_query(connection, query)
+    commit_query(query)
 
 
-def delete_course(connection, course_id):
+def delete_course(course_id):
     query = f'DELETE FROM courses WHERE id={course_id}'
-    commit_query(connection, query)
+    commit_query(query)
