@@ -3,24 +3,19 @@
 2. [Install kubectl](https://kubernetes.io/docs/tasks/tools/)
 
 ## Steps
-1. Run the following command to encode the database password
-```
-echo -n super-secret-passwod | base64
-```
-2. Add the output to the flak-app-secrets.yml file at the DB_PASSWORD value
-3. Deploy the secrets on the kubernetes cluster
+1. Deploy the secrets on the kubernetes cluster
 ```
 kubectl apply -f flask-app-secrets.yml
 ```
-4. Create a persistent volume for mysql database
+2. Create a persistent volume for mysql database
 ```
 kubectl apply -f mysql-volume.yml
 ```
-5. Deploy the mysql database on the kubernetes cluster
+3. Deploy the mysql database on the kubernetes cluster
 ```
 kubectl apply -f mysql-deployment.yml
 ```
-6. Deploy the flask app on the kubernetes cluster
+4. Deploy the flask app on the kubernetes cluster
 ```
 kubectl apply -f flask-app-deployment.yml
 ```
