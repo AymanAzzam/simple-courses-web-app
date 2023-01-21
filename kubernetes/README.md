@@ -19,11 +19,3 @@ kubectl apply -f mysql-deployment.yml
 ```
 kubectl apply -f flask-app-deployment.yml
 ```
-
-## Notes
-1. The docker container can't connect to the database if the user is created with localhost, It shoulde be created using the host ip. So Create the user using the following
-```
-CREATE USER 'ayman'@'{host-ip}' IDENTIFIED BY '12345678';
-GRANT ALL PRIVILEGES ON courses_app.* TO 'ayman'@'{host-ip}';
-```
-2. The app inside the container won't be accessible on the host if you hosted it using local host, So we host the app on **0.0.0.0**
