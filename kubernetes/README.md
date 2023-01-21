@@ -60,6 +60,16 @@ kubectl apply -f mysql-deployment.yml
 ```
 kubectl apply -f flask-app-deployment.yml
 ```
+7. Test the flask app service
+    1. Get the flask app service url
+    ```
+    minikube service flask-app-service
+    ```
+    2. Hit the api of flask app service
+    ```
+    curl -H "Content-Type: application/json"  <flask-app-service_URL>/
+    ```
 
 ## Useful links
 1. [Deploy mysql on kubernetes](https://phoenixnap.com/kb/kubernetes-mysql)
+2. [Deploying a Flask API and MySQL server on Kubernetes](https://github.com/RikKraanVantage/kubernetes-flask-mysql)
