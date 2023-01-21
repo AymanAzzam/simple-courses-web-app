@@ -4,7 +4,7 @@
 ## Steps
 1. Run the following command from the project directory to Build the docker image
 ```
-docker build --tag flask-app:latest -f docker/Dockerfile Flask\ App/
+docker build --tag flask-app:latest -f docker/Dockerfile flask-app/
 ```
 2. Run a container on host port 5001
 ```
