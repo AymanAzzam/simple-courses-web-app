@@ -23,7 +23,7 @@ export DB_USERNAME=ayman
 export DB_PASSWORD=12345678
 export DB_NAME=courses_app
 ```
-3. Run the flask app on a specific **portNum**
+3. Run the flask app
 ```
-flask run -p portNum
+python3 app.py
 ```
