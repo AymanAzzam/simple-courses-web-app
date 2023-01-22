@@ -1,20 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: flask-app
+  name: flask-app-deployment
+  labels:
+    app: flask-app
 spec:
   replicas: 3
   selector:
     matchLabels:
-      run: flask-app
+      app: flask-app
   template:
     metadata:
       labels:
-        run: flask-app
+        app: flask-app
     spec:
       containers:
       - name: flask-app
-        image: aymanazzam07/flask-app:v3
+        image: aymanazzam07/flask-app:v4
         resources:
           limits:
             memory: "128Mi"
@@ -41,7 +43,7 @@ metadata:
     run: flask-app
 spec:
   selector:
-    run: flask-app
+    app: flask-app
   ports:
   - port: 5000
     protocol: TCP
