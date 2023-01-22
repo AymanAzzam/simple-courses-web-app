@@ -4,7 +4,6 @@
 ## Steps
 1. Set env variables
 ```
-export DB_HOST=localhost
 export DB_USERNAME=ayman
 export DB_PASSWORD=12345678
 export DB_ROOT_PASSWORD=12345678

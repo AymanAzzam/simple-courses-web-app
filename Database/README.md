@@ -13,11 +13,11 @@ CREATE DATABASE courses_app;
 ```
 3. Create a new user
 ```
-CREATE USER 'ayman'@'localhost' IDENTIFIED BY '12345678';
+CREATE USER 'ayman'@'%' IDENTIFIED BY '12345678';
 ```
 4. Give the user access to the database
 ```
-GRANT ALL PRIVILEGES ON courses_app.* TO 'ayman'@'localhost';
+GRANT ALL PRIVILEGES ON courses_app.* TO 'ayman'@'%';
 ```
 5. Connect to the new database with the new user using MySql Client
 6. Run **create.sql** script on the client to create the tables

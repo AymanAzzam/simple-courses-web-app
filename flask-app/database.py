@@ -4,14 +4,15 @@ import sys
 import os
 
 ########################## [DATABASE CONFIGURATIONS] ##################################
-dbHost = os.environ['DB_HOST']
+dbHost = os.environ['MYSQL_SERVICE_HOST']
+dbPort = int(os.environ.get('MYSQL_SERVICE_PORT',3306))
 dbUser = os.environ['DB_USERNAME']
 dbPassword = os.environ['DB_PASSWORD']
 dbName = os.environ['DB_NAME']
 
 def connect_database():
     try:
-        connection = pymysql.connect(host=dbHost, user=dbUser, password=dbPassword, database=dbName, connect_timeout=5)
+        connection = pymysql.connect(host=dbHost, port=dbPort, user=dbUser, password=dbPassword, database=dbName, connect_timeout=5)
     except pymysql.MySQLError as e:
         print(e)
         sys.exit()

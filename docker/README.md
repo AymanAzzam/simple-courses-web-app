@@ -8,7 +8,7 @@ docker build --tag flask-app:latest -f docker/Dockerfile flask-app/
 ```
 2. Run a container on host port 5001
 ```
-docker run -p 5001:5000 -e DB_HOST=192.168.1.9 -e DB_USERNAME=ayman -e DB_PASSWORD=12345678 -e DB_NAME=courses_app flask-app
+docker run -p 5001:5000 -e MYSQL_SERVICE_HOST=192.168.1.3  -e DB_USERNAME=ayman -e DB_PASSWORD=12345678 -e DB_NAME=courses_app flask-app
 ```
 3. Login to docker
 ```

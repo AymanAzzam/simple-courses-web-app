@@ -18,7 +18,7 @@ export FLASK_DEBUG=1
 ```
 2. Set the database env variables
 ```
-export DB_HOST=localhost
+export MYSQL_SERVICE_HOST=localhost
 export DB_USERNAME=ayman
 export DB_PASSWORD=12345678
 export DB_NAME=courses_app
