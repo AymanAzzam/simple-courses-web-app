@@ -12,6 +12,8 @@ minikube start
 kubectl apply -f flask-app-secrets.yml
 ```
 3. Create a persistent volume for mysql database
+    1. Change **path: "/mnt/data"** to **path: "<existing-path-in-your-machine"** in the file **mysql-volume.yml** (For windows machines only) 
+    2. Create the persistent volume
 ```
 kubectl apply -f mysql-volume.yml
 ```
